@@ -1,71 +1,14 @@
-demon1 = User.create!(
+human = User.create!(
     name: 'michael' ,
-    race: 'Half Demon', 
-    atk: 7,
-    def: 4,
-    agi: 3,
-    int: 1,
-    hp: 3,
-    mp: 2
+    race: 'human', 
+    lvl: 999,
+    atk: 99,
+    def: 99,
+    agi: 99,
+    int: 99,
+    hp: 99,
+    mp: 99
     )
-
-# demon2 = User.create!(
-#     name: nil, 
-#     race: 'Half Demon', 
-#     gender: 'Female',
-#     atk: 7,
-#     def: 4,
-#     agi: 3,
-#     int: 1,
-#     hp: 3,
-#     mp: 2
-#     )
-
-# human1 = User.create!(
-#     name: nil, 
-#     race: 'Human',
-#       atk: 5,
-#       def: 3,
-#       agi: 3,
-#       int: 2,
-#       hp: 5,
-#       mp: 2
-# )
-
-# human2 = User.create!(
-#     name: nil,
-#     race: 'Human',
-#     gender: 'Female',
-#       atk: 5,
-#       def: 3,
-#       agi: 3,
-#       int: 2,
-#       hp: 5,
-#       mp: 2
-# )
-
-# elf1 = User.create!(
-#     name: nil,
-#     race: 'Elf',
-#       atk: 4,
-#       def: 2,
-#       agi: 2,
-#       int: 4,
-#       hp: 3,
-#       mp: 5
-# )
-
-# elf2 = User.create!(
-#     name: nil,
-#     race: 'Elf',
-#       gender: 'Female',
-#        atk: 4,
-#       def: 2,
-#       agi: 2,
-#       int: 4,
-#       hp: 3,
-#       mp: 5
-# )
 
 npc1 = Character.create!(
       name: 'alza',
@@ -106,13 +49,6 @@ npc6 = Character.create!(
       content: 'to buy weapons click on the B button'
 )
 
-npc7 = Character.create!(
-      name: 'foxtrot',
-      race: 'Elf',
-      gender: 'Female',
-      content: 'to buy items click on the I button'
-)
-
 goblin = Mob.create!(
      speices: 'goblin',
      name: nil,
@@ -142,7 +78,7 @@ goblin2 = Mob.create!(
 goblin3 = Mob.create!(
      speices: 'goblin',
      name: 'goblin noble',
-      description: 'swings its sword like a child',
+      description: 'swings its sword like a child',   
       lvl: 5,
       atk: 7,
       def: 6,
@@ -156,7 +92,7 @@ goblin3 = Mob.create!(
 goblin4 = Mob.create!(
      speices: 'goblin',
      name: 'goblin hunter',
-      description: 'uses long range attacks to kill its target',
+      description: 'uses long range attacks to kill its target',    
       lvl: 5,
       atk: 2,
       def: 2,
@@ -171,6 +107,7 @@ goblin5 = Mob.create!(
      speices: 'goblin',
      name: 'Ravik The Goblin Chief',
       description: 'the goblin cheif',
+      weapon_id: 1,
       lvl: 7,
       atk: 10,
       def: 7,
@@ -179,4 +116,48 @@ goblin5 = Mob.create!(
       hp: 15,
       mp: 2 ,
       skill: 'Skull Bash'
+)
+
+sword1 = Weapon.create!(
+   name: 'unamed',
+   description: 'old dull blade',
+   lvl_required: 1,
+      atk: 3,
+      def: 2,
+      hp: 0,
+      mp: 0,
+     durability: 20,
+     user_id: human.id,
+)
+
+
+sword2 = Weapon.create!(
+   name: 'Shusui',
+   description: 'blade of the undead',
+   lvl_required: 3,
+      atk: 5,
+      def: 5,
+      hp: 0,
+      mp: 0,
+     durability: 60
+)
+
+sword3 = Weapon.create!(
+   name: 'Enma',
+   description: 'blade of kozuki oden',
+      atk: 9,
+      def: 4,
+      hp: 0,
+      mp: 2,
+     durability: 100
+)
+
+sword4 = Weapon.create!(
+   name: 'Wado Ichimonji',
+   description: 'sword from the 3 swords style collection',
+      atk: 8,
+      def: 5,
+      hp: 0,
+      mp: 2,
+     durability: 100
 )

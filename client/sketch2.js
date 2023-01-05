@@ -1,3 +1,5 @@
+
+
 const config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
@@ -13,6 +15,36 @@ const config = {
         update: update
     }
 }
+
+async function getMobData() {
+    const req = await fetch('http://127.0.0.1:3000/mobs');
+    const res = await req.json();
+    console.log(res);
+}
+getMobData();
+
+async function getPlayerData() {
+    const req = await fetch('http://127.0.0.1:3000/users');
+    const res = await req.json();
+    console.log(res);
+}
+getPlayerData();
+
+async function getNpcData() {
+    const req = await fetch('http://127.0.0.1:3000/characters');
+    const res = await req.json();
+    console.log(res);
+}
+getNpcData();
+
+async function getSwordData() {
+    const req = await fetch('http://127.0.0.1:3000/weapons');
+    const res = await req.json();
+    console.log(res);
+}
+getSwordData();
+
+
 let GAMEWIDTH = 1000
 let GAMEHEIGHT = 900
 const speed = 1;
@@ -25,7 +57,7 @@ const game = new Phaser.Game(config);
 
 function preload() {
     this.load.image('pic', 'NewpalletTown.png');
-    this.load.image('img', 'Sephiroth.png')
+    this.load.image('img', 'roronoa_zoro_by_dtrain2695_dbvkv3j-350t.png')
     this.load.image('clear', 'white.png')
 
 }
@@ -47,7 +79,7 @@ function create() {
     console.log(GAMEWIDTH)
     console.log(GAMEHEIGHT)
     this.cameras.main.setBounds(0, 0, GAMEWIDTH, GAMEHEIGHT);
-    this.cameras.main.startFollow(this.player, true, 0.5, 0.5);
+    this.cameras.main.startFollow(this.player, true, 1, 1);
     this.player.setCollideWorldBounds(true);
 
 

@@ -21,17 +21,6 @@ ActiveRecord::Schema.define(version: 2022_12_30_022102) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string "type"
-    t.string "name"
-    t.string "description"
-    t.string "image_url"
-    t.integer "quantity", default: 20
-    t.integer "price", default: 100
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string "type"
     t.string "name"
@@ -51,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_12_30_022102) do
     t.integer "int", default: 1
     t.integer "hp", default: 5
     t.integer "mp", default: 2
+    t.integer "weapon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,17 +63,15 @@ ActiveRecord::Schema.define(version: 2022_12_30_022102) do
   end
 
   create_table "weapons", force: :cascade do |t|
-    t.string "type"
     t.string "name"
     t.string "description"
-    t.string "image_url"
     t.integer "lvl_required", default: 5
     t.integer "atk", default: 5
     t.integer "def", default: 3
     t.integer "hp", default: 2
     t.integer "mp", default: 2
     t.integer "durability", default: 100
-    t.integer "weapon_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

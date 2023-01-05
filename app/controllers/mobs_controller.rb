@@ -3,7 +3,6 @@ class MobsController < ApplicationController
 
   # GET /mobs
   def index
-  
     mobs = Mob.all
     render json: mobs
   end
@@ -34,9 +33,9 @@ class MobsController < ApplicationController
   end
 
   # DELETE /mobs/1
-  def destroy
-    @mob.destroy
-  end
+  # def destroy
+  #   @mob.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

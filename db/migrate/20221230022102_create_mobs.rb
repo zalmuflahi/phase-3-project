@@ -12,7 +12,7 @@ class CreateMobs < ActiveRecord::Migration[6.1]
       t.integer :int, default: 1
       t.integer :hp, default: 5
       t.integer :mp, default: 2
-     
+      t.integer :weapon_id
 
       t.timestamps
     end
