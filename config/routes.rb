@@ -7,4 +7,5 @@ Rails.application.routes.draw do
    get '/weapons/:id', to:'weapons#show'
    get '/characters', to: 'characters#index'
    get '/characters/:id', to:'characters#show'
+   patch '/users/:id', to:'users#update'
 end

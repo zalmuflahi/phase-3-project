@@ -140,7 +140,7 @@ class Home extends Phaser.Scene {
         this.ground = this.platforms.create(450, 40)
         this.door = this.platforms.create(583, 322)
         this.physics.add.collider(this.door, this.player, () => {
-            this.scene.start('Boss')
+            this.scene.start('Boss', { playerData: data.playerData})
         })
         // 583 322
         //  this.ground.alpha = 0
@@ -497,6 +497,7 @@ class Boss extends Phaser.Scene {
 
         }
         getSwordData();
+        
 
     }
 
@@ -534,6 +535,7 @@ class Boss extends Phaser.Scene {
             sprite.on('pointerdown', () => {
                 const particles = this.add.particles('explosion')
 
+
                 const emitter = particles.createEmitter({
                     speed: 10,
                     scale: { start: 1, end: 0 },
@@ -545,6 +547,21 @@ class Boss extends Phaser.Scene {
                 }, [], this);
                 sprite.destroy()
                 /// HERE IS WHERE YOU WILL ADD THE PATCH THE REQUEST TO LEVEL UP THE PLAYER
+                let lvl = data.playerData.lvl
+                const request = async () => {
+                    let req = await fetch("http://127.0.0.1:3000/users/1 ",{
+                        method: "PATCH",
+                        headers: {'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            lvl: lvl + 1
+                        })
+                        
+                    })
+                    let res = await req.json()
+                    data.playerData = res
+                }
+                request()
+                console.log(lvl)
                     
 
             })
@@ -574,7 +591,7 @@ class Boss extends Phaser.Scene {
         this.ground = this.platforms.create(450, 40)
         this.door = this.platforms.create(583, 322)
         this.physics.add.collider(this.door, this.player, () => {
-            this.scene.start('Home')
+            this.scene.start('Home', { playerData: data.playerData})
         })
 
         this.physics.add.collider(this.ground, this.player)
