@@ -1,13 +1,13 @@
 human = User.create!(
     name: 'michael' ,
     species: 'human', 
-    lvl: 999,
-    atk: 99,
-    def: 99,
-    agi: 99,
-    int: 99,
-    hp: 99,
-    mp: 99
+    lvl: 1,
+    atk: 8,
+    def: 6,
+    agi: 5,
+    int: 4,
+    hp: 5,
+    mp: 2
     )
 
 npc1 = Character.create!(

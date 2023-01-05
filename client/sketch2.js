@@ -480,23 +480,23 @@ class Boss extends Phaser.Scene {
         getMobData();
 
 
-        async function getNpcData() {
-            const req = await fetch('http://127.0.0.1:3000/characters');
-            const res = await req.json();
-            data.npcData = res
-            console.log("NPCS", data)
-        }
-        getNpcData();
+        // async function getNpcData() {
+        //     const req = await fetch('http://127.0.0.1:3000/characters');
+        //     const res = await req.json();
+        //     data.npcData = res
+        //     console.log("NPCS", data)
+        // }
+        // getNpcData();
 
 
-        async function getSwordData() {
-            const req = await fetch('http://127.0.0.1:3000/weapons');
-            const res = await req.json();
-            data.swordData = res
-            console.log("SWORDS", data)
+        // async function getSwordData() {
+        //     const req = await fetch('http://127.0.0.1:3000/weapons');
+        //     const res = await req.json();
+        //     data.swordData = res
+        //     console.log("SWORDS", data)
 
-        }
-        getSwordData();
+        // }
+        // getSwordData();
 
     }
 
