@@ -1,7 +1,7 @@
 class CreateMobs < ActiveRecord::Migration[6.1]
   def change
     create_table :mobs do |t|
-      t.string :speices
+      t.string :species
       t.string :name 
       t.string :description
       t.string :skill

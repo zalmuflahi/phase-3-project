@@ -1,56 +1,56 @@
 human = User.create!(
     name: 'michael' ,
-    speices: 'human', 
-    lvl: 999,
-    atk: 99,
-    def: 99,
-    agi: 99,
-    int: 99,
-    hp: 99,
-    mp: 99
+    species: 'human', 
+    lvl: 1,
+    atk: 5,
+    def: 4,
+    agi: 5,
+    int: 4,
+    hp: 5,
+    mp: 2
     )
 
 npc1 = Character.create!(
       name: 'alza',
-      race: 'Human',
+      species: 'Human',
       content: 'please help in defeating the Demon Lord ' 
 )
 
 npc2 = Character.create!(
       name: 'alpha',
-      race: 'Human',
+      species: 'Human',
       gender: 'Female',
       content: 'to jump click the SpaceBar' 
 )
 
 npc3 = Character.create!(
       name: 'bravo',
-      race: 'Elf',
+      species: 'Elf',
       content: 'before engaging in combat hover over the mob to see its stats'
 )
 
 npc4 = Character.create!(
       name: 'charlie',
-      race: 'Elf',
+      species: 'Elf',
       gender: 'Female',
       content: 'after lvling up dont forget to distribute your extra status points'
 )
 
 npc5 = Character.create!(
       name: 'delta',
-      race: 'Demi Demon',
+      species: 'Demi Demon',
       content: 'the demon lord wants the world to burn to ashes'
 )
 
 npc6 = Character.create!(
       name: 'echo',
-      race: 'Demi Demon',
+      species: 'Demi Demon',
       gender: 'Female',
       content: 'to buy weapons click on the B button'
 )
 
 goblin = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: nil,
       description: 'as strong as a child',
       lvl: 1,
@@ -63,7 +63,7 @@ goblin = Mob.create!(
 )
 
 goblin2 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'goblin knight',
       description: 'goblin that uses a shield to protect itself',
       lvl: 3,
@@ -76,7 +76,7 @@ goblin2 = Mob.create!(
 )
 
 goblin3 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'goblin noble',
       description: 'swings its sword like a child',   
       lvl: 5,
@@ -90,7 +90,7 @@ goblin3 = Mob.create!(
 )
 
 goblin4 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'goblin hunter',
       description: 'uses long range attacks to kill its target',    
       lvl: 5,
@@ -104,7 +104,7 @@ goblin4 = Mob.create!(
 )
 
 goblin5 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'Ravik The Goblin Chief',
       description: 'the goblin cheif',
       weapon_id: 1,

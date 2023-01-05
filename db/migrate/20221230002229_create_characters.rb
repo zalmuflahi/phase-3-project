@@ -3,7 +3,7 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
     create_table :characters do |t|
       t.string :name
       t.string :gender, default: 'Male'
-      t.string :race
+      t.string :species
       t.text :content
 
       t.timestamps
