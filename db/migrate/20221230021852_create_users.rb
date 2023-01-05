@@ -2,8 +2,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
       t.string :name
-      t.string :race
-      t.string :profession, default: 'Battle slave'
+      t.string :species
+      t.string :profession, default: 'swordsman'
       t.string :gender, default: 'Male'
       t.integer :lvl, default: 1
       t.integer :exp

@@ -1,6 +1,6 @@
 human = User.create!(
     name: 'michael' ,
-    race: 'human', 
+    speices: 'human', 
     lvl: 999,
     atk: 99,
     def: 99,

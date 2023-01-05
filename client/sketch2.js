@@ -12,43 +12,62 @@ const config = {
     scene: {
         preload: preload,
         create: create,
-        update: update
+        update: update,
+        init: init,
     }
 }
 
-async function getMobData() {
-    const req = await fetch('http://127.0.0.1:3000/mobs');
-    const res = await req.json();
-    console.log(res);
-}
-getMobData();
+function init(data){
+  
+    async function getPlayerData() {
+        const req = await fetch('http://127.0.0.1:3000/users');
+        const res = await req.json();
+       // console.log("DATA",data)
+        data.playerData = res
+       
 
-async function getPlayerData() {
-    const req = await fetch('http://127.0.0.1:3000/users');
-    const res = await req.json();
-    console.log(res);
-}
-getPlayerData();
+        // game.data.set('api', res);
+      
+    }
+    getPlayerData()
 
-async function getNpcData() {
-    const req = await fetch('http://127.0.0.1:3000/characters');
-    const res = await req.json();
-    console.log(res);
-}
-getNpcData();
 
-async function getSwordData() {
-    const req = await fetch('http://127.0.0.1:3000/weapons');
-    const res = await req.json();
-    console.log(res);
+    async function getMobData() {
+        const req = await fetch('http://127.0.0.1:3000/mobs');
+        const res = await req.json();
+        data.mobData = res
+        
+        //console.log(res);
+    }
+    getMobData();
+
+
+    async function getNpcData() {
+        const req = await fetch('http://127.0.0.1:3000/characters');
+        const res = await req.json();
+        data.npcData = res
+        console.log("NPCS", data)
+    }
+    getNpcData();
+
+
+    async function getSwordData() {
+        const req = await fetch('http://127.0.0.1:3000/weapons');
+        const res = await req.json();
+        data.swordData = res
+        console.log("SWORDS", data)
+        
+    }
+    getSwordData();
+
 }
-getSwordData();
 
 
 let GAMEWIDTH = 1000
 let GAMEHEIGHT = 900
 const speed = 1;
-
+let x
+let y
 
 let moveCam = false;
 
@@ -56,19 +75,73 @@ let moveCam = false;
 const game = new Phaser.Game(config);
 
 function preload() {
+    
     this.load.image('pic', 'NewpalletTown.png');
     this.load.image('img', 'roronoa_zoro_by_dtrain2695_dbvkv3j-350t.png')
     this.load.image('clear', 'white.png')
 
 }
 
-function create() {
+function create(data) {
+    let playerData = data.playerData;
+    console.log("PLAYER",playerData);
+
+    let mobData = data.mobData;
+    console.log("MOB",mobData);
+
+    let npcData =  data.npcData;
+    console.log('npc', npcData);
+
+     let swordData = data.swordData;
+     console.log('sword', swordData);
+
+    
+ 
     let map = this.add.image(500, 450, 'pic');
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
     this.player = this.physics.add.image(489, 23, 'img');
     this.player.setScale(0.1)
+
+
+    this.input.on('pointerdown', () => { 
+        const popup = this.add.graphics();
+        const message = this.add.text(0, 0, `
+        name: ${playerData.name}
+        level: ${playerData.lvl}
+        atk: ${playerData.atk}
+        def: ${playerData.def}
+        agi: ${playerData.agi}
+        int: ${playerData.int}
+
+        hp: ${playerData.hp}
+        mana: ${playerData.mp}
+        `,{
+            font: "20px Arial",
+            fill: "#000000",
+        })
+        popup.fillStyle(0xFFFFF, 1)
+        popup.fillRect(300, 50, 350, 300)
+        message.x = 305;
+        message.y = 60;
+
+        const closeButton = this.add.text(0,0,'X',{
+            font: "32px Arial",
+            fill: "#000000",
+        })
+        closeButton.x = 450;
+        closeButton.y = 300;
+
+        closeButton.setInteractive();
+
+        closeButton.on('pointerdown', () => {
+            popup.clear()
+            message.destroy();
+            closeButton.destroy();
+        })
+    });
+
 
     this.cameras.main.startFollow(this.player, true);
     this.cameras.main.setZoom(2);
@@ -81,7 +154,6 @@ function create() {
     this.cameras.main.setBounds(0, 0, GAMEWIDTH, GAMEHEIGHT);
     this.cameras.main.startFollow(this.player, true, 1, 1);
     this.player.setCollideWorldBounds(true);
-
 
     /// PLATFORMS
     let color = Phaser.Display.Color.GetColor32(255,255, 255, 0);
