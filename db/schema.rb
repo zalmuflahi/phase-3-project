@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_12_30_022102) do
   end
 
   create_table "mobs", force: :cascade do |t|
-    t.string "speices"
+    t.string "species"
     t.string "name"
     t.string "description"
     t.string "skill"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_12_30_022102) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "speices"
+    t.string "species"
     t.string "profession", default: "swordsman"
     t.string "gender", default: "Male"
     t.integer "lvl", default: 1

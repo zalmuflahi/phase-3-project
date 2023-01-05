@@ -1,6 +1,6 @@
 human = User.create!(
     name: 'michael' ,
-    speices: 'human', 
+    species: 'human', 
     lvl: 999,
     atk: 99,
     def: 99,
@@ -50,7 +50,7 @@ npc6 = Character.create!(
 )
 
 goblin = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: nil,
       description: 'as strong as a child',
       lvl: 1,
@@ -63,7 +63,7 @@ goblin = Mob.create!(
 )
 
 goblin2 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'goblin knight',
       description: 'goblin that uses a shield to protect itself',
       lvl: 3,
@@ -76,7 +76,7 @@ goblin2 = Mob.create!(
 )
 
 goblin3 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'goblin noble',
       description: 'swings its sword like a child',   
       lvl: 5,
@@ -90,7 +90,7 @@ goblin3 = Mob.create!(
 )
 
 goblin4 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'goblin hunter',
       description: 'uses long range attacks to kill its target',    
       lvl: 5,
@@ -104,7 +104,7 @@ goblin4 = Mob.create!(
 )
 
 goblin5 = Mob.create!(
-     speices: 'goblin',
+     species: 'goblin',
      name: 'Ravik The Goblin Chief',
       description: 'the goblin cheif',
       weapon_id: 1,
