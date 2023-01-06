@@ -71,8 +71,6 @@ class Home extends Phaser.Scene {
         let swordData = data.swordData;
         console.log('sword', swordData);
 
-
-
         let map = this.add.image(500, 450, 'pic');
 
         this.cursors = this.input.keyboard.createCursorKeys();
